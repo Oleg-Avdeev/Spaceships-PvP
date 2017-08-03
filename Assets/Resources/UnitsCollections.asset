@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a72d6d4620d4c1a8e103122c2f99c9, type: 3}
+  m_Name: UnitsCollections
+  m_EditorClassIdentifier: 
+  Collection:
+  - Index: 0
+    Title: Attacker
+    Icon: {fileID: 2800000, guid: 8140356f16aca489c818ee233336e5a3, type: 3}
+    EnergyCost: 1
+    Health: 10
+    Damage: 1
+    AttackSpeed: 1
+    SpawnTime: 5
+  - Index: 1
+    Title: Defender
+    Icon: {fileID: 2800000, guid: 4b0eb664fa8854b8aa85e28cb90408b8, type: 3}
+    EnergyCost: 1
+    Health: 20
+    Damage: 1
+    AttackSpeed: 0.5
+    SpawnTime: 7
+  - Index: 2
+    Title: Kamikadze
+    Icon: {fileID: 2800000, guid: 00188b0ad974b4a3880f7f73c87e6147, type: 3}
+    EnergyCost: 1
+    Health: 3
+    Damage: 10
+    AttackSpeed: 0
+    SpawnTime: 3
