@@ -18,7 +18,7 @@ public class RoomController : MonoBehaviour, IRoomController
         }
 
 		Debug.Log("Instantiate Mothership for " + PhotonNetwork.player.ID);
-        PhotonNetwork.Instantiate("Mothership", new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0), Quaternion.identity, 0, new object[] { new int[] { 0, 1, 2 } });
+        PhotonNetwork.Instantiate("Mothership", new Vector3(Random.Range(-2f, 2f)*6, Random.Range(-2f, 2f)*6, 0), Quaternion.identity, 0, new object[] { new int[] { 0, 1, 2 } });
 
         _isRoomReadyToPlay = false;
         _checkInstantiationsCoroutine = StartCoroutine("CheckInstantiations");

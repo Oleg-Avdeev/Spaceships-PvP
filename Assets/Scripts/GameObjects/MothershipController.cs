@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MothershipController : PhotonView, IMothership, IMothershipSpawner {
 	private Transform _transform;
-	private List<GameObject> _ships = new List<GameObject>();
+	public List<Ship> Ships = new List<Ship>();
 	private ISpawnData[] _units;
 
     Vector3 _serverPosition = Vector3.zero;
@@ -60,6 +60,7 @@ public class MothershipController : PhotonView, IMothership, IMothershipSpawner 
 		return _units;
 	}
 
+	private Ship _newShip;
 	public bool TrySpawnUnit(int id)
 	{
 		if(_units == null) return false;
@@ -70,7 +71,7 @@ public class MothershipController : PhotonView, IMothership, IMothershipSpawner 
 		_units[id].Spawn();
 
         PhotonNetwork.Instantiate(unit.GetTitle(), _transform.position, Quaternion.identity, 0,
-			new object[] { unit.GetIndex() });
+			new object[] { unit.GetIndex() }).GetComponent<Ship>();
 
 		return true;
 	}
