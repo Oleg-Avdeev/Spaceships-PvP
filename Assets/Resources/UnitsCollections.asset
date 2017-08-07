@@ -14,7 +14,8 @@ MonoBehaviour:
   Collection:
   - Index: 0
     Title: Attacker
-    Icon: {fileID: 2800000, guid: 8140356f16aca489c818ee233336e5a3, type: 3}
+    Icon: {fileID: 21300000, guid: 0a20ae6a1f006e7418b77978d9964252, type: 3}
+    RedIcon: {fileID: 21300000, guid: 75e744c8710ad36439ceb9e41b81658f, type: 3}
     EnergyCost: 1
     Health: 10
     Damage: 1
@@ -22,7 +23,8 @@ MonoBehaviour:
     SpawnTime: 5
   - Index: 1
     Title: Defender
-    Icon: {fileID: 2800000, guid: 4b0eb664fa8854b8aa85e28cb90408b8, type: 3}
+    Icon: {fileID: 21300000, guid: f572975b324f0b64eadc40e460cc3733, type: 3}
+    RedIcon: {fileID: 21300000, guid: 99a89e3eaa6901f4d8adf63013422f05, type: 3}
     EnergyCost: 1
     Health: 20
     Damage: 1
@@ -30,7 +32,8 @@ MonoBehaviour:
     SpawnTime: 7
   - Index: 2
     Title: Kamikadze
-    Icon: {fileID: 2800000, guid: 00188b0ad974b4a3880f7f73c87e6147, type: 3}
+    Icon: {fileID: 21300000, guid: 9698a5933cc296c4c97ffc07f8df733e, type: 3}
+    RedIcon: {fileID: 21300000, guid: 4004c8391158be34f9ef1346bf15aa30, type: 3}
     EnergyCost: 1
     Health: 3
     Damage: 10

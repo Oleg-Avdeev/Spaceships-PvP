@@ -5,7 +5,8 @@ public class UnitInfo : IUnitInfo
 {
 	[SerializeField] private int Index;
 	[SerializeField] private string Title;
-	[SerializeField] private Texture2D Icon;
+	[SerializeField] private Sprite Icon;
+	[SerializeField] private Sprite RedIcon;
 	[SerializeField] private int EnergyCost;
 	[SerializeField] private float Health;
 	[SerializeField] private float Damage;
@@ -17,7 +18,12 @@ public class UnitInfo : IUnitInfo
 		return Index;
 	}
 
-	public Texture2D GetIcon()
+	public Sprite GetBlueIcon()
+	{
+		return Icon;
+	}
+
+	public Sprite GetRedIcon()
 	{
 		return Icon;
 	}

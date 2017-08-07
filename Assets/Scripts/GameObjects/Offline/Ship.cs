@@ -18,6 +18,7 @@ public class Ship : PhotonView
     private Vector3 _serverSpeed = Vector3.zero;
     private Vector3 _serverPosition = Vector3.zero;
     private Vector3 _diff;
+    private SpriteRenderer _spriteRenderer;
 
 
      void OnPhotonInstantiate(PhotonMessageInfo info)
@@ -34,17 +35,20 @@ public class Ship : PhotonView
             _unit = Resolver.Instance.Units.Collection[id];
 
             gameObject.name = _unit.GetTitle() + "-for-" + ownerId;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _transform = transform;
 
             if (isMine)
             {
                 MyMothership = Resolver.Instance.RoomController.GetMyMothership();
                 EnemyMothership = Resolver.Instance.RoomController.GetEnemyMothership();
+                _spriteRenderer.sprite = _unit.GetBlueIcon();
             }
             else
             {
                 EnemyMothership = Resolver.Instance.RoomController.GetMyMothership();
                 MyMothership = Resolver.Instance.RoomController.GetEnemyMothership();
+                _spriteRenderer.sprite = _unit.GetRedIcon();
             }
 
             _transform.position = MyMothership.GetTransform().position;
@@ -59,6 +63,7 @@ public class Ship : PhotonView
     public void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
+        if (MyMothership == null) return;
         ((MothershipController)MyMothership).Ships.Add(this);
 
         for (int i = 0; i < Turrets.Length; i++)
@@ -120,6 +125,8 @@ public class Ship : PhotonView
 
     private Projectile _incomingProjectile;
     void OnTriggerEnter2D(Collider2D other) {
+        if (!PhotonNetwork.isMasterClient) return;
+
         if (other.gameObject.tag == "Projectile")
         {
             _incomingProjectile = other.GetComponent<Projectile>();
@@ -144,6 +151,7 @@ public class Ship : PhotonView
 
     public virtual void Die()
     {
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
+        // Destroy(gameObject);
     }
 }

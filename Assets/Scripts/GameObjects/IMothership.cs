@@ -19,7 +19,8 @@ public interface ISpawnData
 public interface IUnitInfo
 {
 	int GetIndex();
-	Texture2D GetIcon();
+	Sprite GetBlueIcon();
+	Sprite GetRedIcon();
 	string GetTitle();
 	int GetEnergyCost();
 	float GetHealth();

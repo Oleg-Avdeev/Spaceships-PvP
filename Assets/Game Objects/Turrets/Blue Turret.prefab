@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TickLength: 1
-  ShootingAngle: 10
+  ShootingAngle: 180
   ShootingDistance: 10
   ProjectilePrefab: {fileID: 114882201022018352, guid: e7a88eb75c25f7543be66efd7602a130,
     type: 2}

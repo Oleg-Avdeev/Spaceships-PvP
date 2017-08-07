@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
-  Speed: 10
+  Speed: 1
   Lifespan: 1
   Owner: 0
 --- !u!212 &212315056112626036

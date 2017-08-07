@@ -242,15 +242,15 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 4133731450061346}
+  - {fileID: 114689765361082494}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
   HP: 100
-  MaxTorque: 30
-  MaxVelocity: 0.3
+  MaxTorque: 5
+  MaxVelocity: 0.4
   Turrets:
   - {fileID: 114054010868229026}
   Direction: {x: 0, y: 0}

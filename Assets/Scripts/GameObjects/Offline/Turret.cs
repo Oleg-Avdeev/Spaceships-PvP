@@ -38,6 +38,7 @@ public class Turret : ClockMonoBehaviour
 
     private void _selectTarget()
     {
+        if (_parentShip.EnemyMothership == null) return;
         _ships = ((MothershipController)_parentShip.EnemyMothership).Ships;
             for (int shipI = 0; shipI < _ships.Count; shipI++)
             {
