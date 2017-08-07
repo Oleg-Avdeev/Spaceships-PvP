@@ -36,12 +36,17 @@ public class FighterShip : Ship
 
     public void Update()
     {
-        if (Direction == Vector3.zero)
-            Direction = 5 * Vector3.up;
+        if(!isMine)
+        {
+            return;
+        }
+
+        if (Direction == Vector2.zero)
+            Direction = 5 * Vector2.up;
 
         if (!_isOnScreen())
         {
-            Direction = Vector2.MoveTowards(Direction, -(Vector2)transform.position, Mathf.PI / 10);
+            Direction = -(Vector2)transform.position;
             return;
         }
 

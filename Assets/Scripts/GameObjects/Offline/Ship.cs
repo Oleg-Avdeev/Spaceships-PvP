@@ -7,7 +7,9 @@ public class Ship : PhotonView
     public float MaxVelocity;
     public Turret[] Turrets;
 
-    [HideInInspector] public Vector3 Direction {get; protected set;}
+    [HideInInspector]
+    public Vector2 Direction { get; protected set; }
+    private Vector3 _direction = Vector3.up;
     protected Rigidbody2D _rb2D;
     protected IUnitInfo _unit;
     protected Transform _transform;
@@ -19,7 +21,7 @@ public class Ship : PhotonView
     private SpriteRenderer _spriteRenderer;
 
 
-     void OnPhotonInstantiate(PhotonMessageInfo info)
+    void OnPhotonInstantiate(PhotonMessageInfo info)
     {
         if (instantiationData != null)
         {
@@ -53,7 +55,10 @@ public class Ship : PhotonView
         }
         else
         {
-            PhotonNetwork.Destroy(gameObject);
+            if(isMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
             return;
         }
     }
@@ -63,7 +68,7 @@ public class Ship : PhotonView
         _rb2D = GetComponent<Rigidbody2D>();
         if (MyMothership == null) return;
         MyMothership.GetShips().Add(this);
-        
+
         MaxVelocity = GameController.Instance.MaxVelocity;//
         MaxTorque = GameController.Instance.MaxTorque;//
 
@@ -76,56 +81,50 @@ public class Ship : PhotonView
         // _fixPosition();
 
         // float k = _rb2D.velocity.magnitude / MaxVelocity;
-		// _rb2D.AddForce (Direction * MaxTorque);
-		// _rb2D.AddForce (-_rb2D.velocity * k);
+        // _rb2D.AddForce (Direction * MaxTorque);
+        // _rb2D.AddForce (-_rb2D.velocity * k);
 
         // float angle = Vector2.Angle(Vector2.up, _rb2D.velocity);
         // if (_rb2D.velocity.x > 0) angle = 360 - angle;
-		// transform.rotation = Quaternion.Euler(0,0,angle);
+        // transform.rotation = Quaternion.Euler(0,0,angle);
 
-
-        _transform.position += (MaxTorque * Time.deltaTime) * Direction;
-        float angle = Mathf.LerpAngle(_transform.eulerAngles.z, Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg - 90, 0.5f);
+        _direction = Vector3.RotateTowards(_direction, Direction, Time.deltaTime, 0).normalized;
+        _transform.position += (MaxTorque * Time.deltaTime) * _direction;
+        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
         _transform.eulerAngles = new Vector3(0, 0, angle);
     }
-
-    // private void _fixPosition()
-    // {
-    //     if (isMine)
-    //     {
-            
-    //     }
-    //     else
-    //     {
-    //         _speed = _serverSpeed;
-    //     }
-    // }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {
             stream.SendNext(Direction);
+            // stream.SendNext(_direction);
             stream.SendNext(_transform.position);
         }
         else
         {
-            Direction = (Vector3)stream.ReceiveNext();
-            _serverPosition = (Vector3)stream.ReceiveNext();
-            _transform.position = Vector3.Lerp(_transform.position, _serverPosition, 0.5f);
+            Direction = (Vector2)stream.ReceiveNext();
+            // _direction = (Vector3)stream.ReceiveNext();
+            _serverPosition = (Vector3)stream.ReceiveNext();// + _direction * (MaxTorque * PhotonNetwork.GetPing() / 1000f);
+            _transform.position = Vector3.Lerp(_transform.position, _serverPosition, 0.1f);
         }
     }
 
     private Projectile _incomingProjectile;
-    void OnTriggerEnter2D(Collider2D other) {
-        if (!PhotonNetwork.isMasterClient) return;
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // if (!PhotonNetwork.isMasterClient) return;
 
-        if (other.gameObject.tag == "Projectile")
+        if (other.gameObject.CompareTag("Projectile"))
         {
             _incomingProjectile = other.GetComponent<Projectile>();
             if (_incomingProjectile.Owner != ownerId)
             {
-                DealDamage(_incomingProjectile.Damage);
+                if (PhotonNetwork.isMasterClient)
+                {
+                    DealDamage(_incomingProjectile.Damage);
+                }
                 Destroy(other.gameObject);
             }
         }
@@ -141,8 +140,9 @@ public class Ship : PhotonView
         HP -= damage;
         if (HP < 0)
         {
+            // PhotonView _photonView = PhotonView.Get(this);
             photonView.RPC("_onDieMessageReceived", PhotonTargets.All);
-        } 
+        }
     }
 
     public virtual void Die()
@@ -151,7 +151,7 @@ public class Ship : PhotonView
     }
 
     [PunRPC]
-    private void _onDieMessageReceived()
+    protected void _onDieMessageReceived()
     {
         if (isMine) PhotonNetwork.Destroy(gameObject);
         Die();

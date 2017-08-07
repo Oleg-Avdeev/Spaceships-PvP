@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : PhotonView
 {
     public int Damage = 10;
     public float Speed = 10;
@@ -8,6 +8,22 @@ public class Projectile : MonoBehaviour
     
     [HideInInspector] public int Owner;
     private Vector3 _direction;
+
+    void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        if (instantiationData != null)
+        {
+            Fire((Vector2)instantiationData[0], (int)instantiationData[1]);
+        }
+        else
+        {
+            if(isMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
+            return;
+        }
+    }
     
     
     public void Fire(Vector3 direction, int owner)

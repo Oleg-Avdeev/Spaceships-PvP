@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System;
 
 public class Turret : ClockMonoBehaviour
 {
@@ -23,6 +22,8 @@ public class Turret : ClockMonoBehaviour
 
     public override void OnTick()
     {
+        if(!PhotonNetwork.isMasterClient) return;
+
         if (_target == null) _selectTarget();
         if (_target == null) return;
         
@@ -32,8 +33,9 @@ public class Turret : ClockMonoBehaviour
 
         _shootDirection = _shootAheadVector(_shootDirection, _target);
         // _shootDirection = _addErrorVector(_shootDirection, 1);
-        ((Projectile)Instantiate(ProjectilePrefab, transform.position, new Quaternion()))
-            .Fire(_shootDirection, _parentShip.ownerId);
+        PhotonNetwork.Instantiate("Projectile", transform.position, Quaternion.identity, 0, new object[] {
+            _shootDirection, _parentShip.ownerId
+        });
     }
 
     private void _selectTarget()

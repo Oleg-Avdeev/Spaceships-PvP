@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58899466240730616}
   - component: {fileID: 114882201022018352}
   m_Layer: 0
-  m_Name: Laser Projectile
+  m_Name: Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,6 +166,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a4e76572a827a418d8f05afb171b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents: []
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
   Damage: 50
   Speed: 0.64
   Lifespan: 1
