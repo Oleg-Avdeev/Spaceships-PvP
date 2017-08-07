@@ -29,9 +29,6 @@ public class FighterShip : Ship {
 
     public void Update()
     {
-        //DEBUG
-        Direction = Vector3.up;
-        return;
 
         if (Target == null) _updateTarget();
         if (Target == null) return;
