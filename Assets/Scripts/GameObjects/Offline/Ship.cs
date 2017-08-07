@@ -71,7 +71,7 @@ public class Ship : PhotonView
             Turrets[i].Initialize(this);
     }
 
-    public void FixedUpdate()
+    public void LateUpdate()
     {
         // _fixPosition();
 
@@ -139,12 +139,22 @@ public class Ship : PhotonView
     public virtual void DealDamage(int damage)
     {
         HP -= damage;
-        if (HP < 0) Die();
+        if (HP < 0)
+        {
+            photonView.RPC("_onDieMessageReceived", PhotonTargets.All);
+        } 
     }
 
     public virtual void Die()
     {
-        PhotonNetwork.Destroy(gameObject);
-        // Destroy(gameObject);
+        // Show animation
     }
+
+    [PunRPC]
+    private void _onDieMessageReceived()
+    {
+        if (isMine) PhotonNetwork.Destroy(gameObject);
+        Die();
+    }
+
 }
