@@ -65,6 +65,9 @@ public class Ship : PhotonView
         _rb2D = GetComponent<Rigidbody2D>();
         if (MyMothership == null) return;
         ((MothershipController)MyMothership).Ships.Add(this);
+        
+        MaxVelocity = GameController.Instance.MaxVelocity;
+        MaxTorque = GameController.Instance.MaxTorque;
 
         for (int i = 0; i < Turrets.Length; i++)
             Turrets[i].Initialize(this);

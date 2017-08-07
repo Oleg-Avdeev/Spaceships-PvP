@@ -1,4 +1,4 @@
-// using UnityEngine;
+using UnityEngine;
 // using System.Collections.Generic;
 
 // public enum Fraction
@@ -9,8 +9,18 @@
 //     Yellow
 // }
 
-// public class GameController : MonoBehaviour
-// {
+public class GameController : MonoBehaviour
+{
+    public static GameController Instance;
+
+    public float MaxVelocity = 1;
+    public float MaxTorque = 4;
+
+    public void Awake()
+    {
+        Instance = GetComponent<GameController>();
+    }
+}
 //     public static int NumberOfFractions = 4;
 
 //     public List<Ship>[] FractionShipsList;

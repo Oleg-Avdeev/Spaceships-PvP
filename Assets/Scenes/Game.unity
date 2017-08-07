@@ -251,6 +251,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnButtons: {fileID: 1209276368}
+--- !u!1 &147967603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 147967605}
+  - component: {fileID: 147967604}
+  m_Layer: 0
+  m_Name: Remote Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &147967604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147967603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52774eb4e08ee1f44a312b607e84fb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DriveableProperty:
+    m_Fields:
+    - m_Target: {fileID: 857202674}
+      m_FieldPath: MaxVelocity
+      m_RSKeyName: MaxVelocity
+      m_Type: float
+    - m_Target: {fileID: 857202674}
+      m_FieldPath: MaxTorque
+      m_RSKeyName: MaxTorque
+      m_Type: float
+--- !u!4 &147967605
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147967603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.47665, y: -0.057250023, z: 98.83593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230020758
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +460,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 493334229}
-  m_LocalRotation: {x: 0.06341002, y: 0.040003736, z: 0.056426212, w: 0.9955878}
+  m_LocalRotation: {x: 0.06341002, y: 0.040003736, z: 0.05642621, w: 0.99558777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0523607, y: 1.0523605, z: 1.0523605}
   m_Children: []
@@ -761,6 +811,7 @@ GameObject:
   - component: {fileID: 857202670}
   - component: {fileID: 857202669}
   - component: {fileID: 857202673}
+  - component: {fileID: 857202674}
   m_Layer: 5
   m_Name: Screens
   m_TagString: Untagged
@@ -858,6 +909,19 @@ MonoBehaviour:
   FirstScreen: {fileID: 139702034}
   Screens:
   - {fileID: 139702034}
+--- !u!114 &857202674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857202668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c472d773cdb214bb4a23dba9a73441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxVelocity: 1
+  MaxTorque: 4
 --- !u!1 &1209276367
 GameObject:
   m_ObjectHideFlags: 0
