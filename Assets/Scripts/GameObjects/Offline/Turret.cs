@@ -31,7 +31,7 @@ public class Turret : ClockMonoBehaviour
         if (Vector3.Angle(_parentShip.Direction, _shootDirection) > ShootingAngle) return;
 
         _shootDirection = _shootAheadVector(_shootDirection, _target);
-        _shootDirection = _addErrorVector(_shootDirection, 1);
+        // _shootDirection = _addErrorVector(_shootDirection, 1);
         ((Projectile)Instantiate(ProjectilePrefab, transform.position, new Quaternion()))
             .Fire(_shootDirection, _parentShip.ownerId);
     }
@@ -59,9 +59,9 @@ public class Turret : ClockMonoBehaviour
         return initialDirection + shiftVector;
     }
 
-    protected Vector3 _addErrorVector(Vector3 initialDirection, float errorAngle)
-    {
-        return Quaternion.Euler(0,0, UnityEngine.Random.Range(-errorAngle, errorAngle)) * initialDirection;
-    }
+    // protected Vector3 _addErrorVector(Vector3 initialDirection, float errorAngle)
+    // {
+    //     return Quaternion.Euler(0,0, UnityEngine.Random.Range(-errorAngle, errorAngle)) * initialDirection;
+    // }
 
 }

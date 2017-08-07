@@ -13,6 +13,8 @@ public class FighterShip : Ship {
     private List<Ship> _ships = new List<Ship>();
     private Rigidbody2D _shipTargetRB;
 
+    private Vector3 _screenPosition;
+
 
     private void _updateTarget()
     {
@@ -29,6 +31,14 @@ public class FighterShip : Ship {
 
     public void Update()
     {
+        if (Direction == Vector2.zero)
+            Direction = 5*Vector3.up;
+        
+        if (!_isOnScreen())
+        {
+            Direction = Vector2.MoveTowards (Direction, -(Vector2)transform.position, Mathf.PI / 10);
+            return;
+        }
 
         if (Target == null) _updateTarget();
         if (Target == null) return;
@@ -53,10 +63,19 @@ public class FighterShip : Ship {
         }
 	}
 
+    private bool _isOnScreen()
+    {
+        _screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        return !(_screenPosition.x > Screen.width
+                || _screenPosition.x < 0
+                 || _screenPosition.y > Screen.height
+                  || _screenPosition.y < 0);
+    }
+
     private void _executeManeur()
     {
 		_timeForManeur += 0.2f;
-		Direction = Vector3.RotateTowards (Direction, _maneurVector, Mathf.PI / 10, 0);
+		Direction = Vector2.MoveTowards (Direction, _maneurVector, Mathf.PI / 10);
     }
     
     private void _followTarget()
