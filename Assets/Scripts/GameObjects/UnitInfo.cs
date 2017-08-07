@@ -25,7 +25,7 @@ public class UnitInfo : IUnitInfo
 
 	public Sprite GetRedIcon()
 	{
-		return Icon;
+		return RedIcon;
 	}
 
 	public string GetTitle()
