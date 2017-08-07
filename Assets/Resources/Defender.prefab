@@ -247,8 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2629af955916b74b93996595816b3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TickLength: 1
-  ShootingAngle: 10
+  TickLength: 2
+  ShootingAngle: 30
   ShootingDistance: 10
   ProjectilePrefab: {fileID: 114882201022018352, guid: e7a88eb75c25f7543be66efd7602a130,
     type: 2}
@@ -284,7 +284,6 @@ MonoBehaviour:
   Turrets:
   - {fileID: 114571838199677664}
   - {fileID: 114132270269851664}
-  Direction: {x: 0, y: 0}
   Target: {fileID: 0}
 --- !u!114 &114571838199677664
 MonoBehaviour:
@@ -297,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2629af955916b74b93996595816b3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TickLength: 1
-  ShootingAngle: 10
+  TickLength: 2
+  ShootingAngle: 30
   ShootingDistance: 10
   ProjectilePrefab: {fileID: 114882201022018352, guid: e7a88eb75c25f7543be66efd7602a130,
     type: 2}

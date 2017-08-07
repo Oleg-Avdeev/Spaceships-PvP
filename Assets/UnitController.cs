@@ -13,7 +13,10 @@ public abstract class UnitController : PhotonView
             int id = (int)instantiationData[0];
             if (id < 0 || id >= Resolver.Instance.Units.Collection.Length)
             {
-                PhotonNetwork.Destroy(gameObject);
+                if(isMine)
+                {
+                    PhotonNetwork.Destroy(gameObject);
+                }
                 return;
             }
 
@@ -37,7 +40,10 @@ public abstract class UnitController : PhotonView
         }
         else
         {
-            PhotonNetwork.Destroy(gameObject);
+            if(isMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
             return;
         }
     }

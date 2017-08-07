@@ -10,7 +10,9 @@ public class UnitInfo : IUnitInfo
 	[SerializeField] private int EnergyCost;
 	[SerializeField] private float Health;
 	[SerializeField] private float Damage;
-	[SerializeField] private float AttackSpeed;
+	[SerializeField] private float FireRate;
+	[SerializeField] private float ShipSpeed;
+	[SerializeField] private float ProjectileSpeed;
 	[SerializeField] private double SpawnTime;
 
 	public int GetIndex()
@@ -48,9 +50,20 @@ public class UnitInfo : IUnitInfo
 		return Damage;
 	}
 
-	public float GetAttackSpeed()
+	public float GetFireRate()
 	{
-		return AttackSpeed;
+		return FireRate;
+	}
+
+	public float GetShipSpeed()
+	{
+		return GameController.Instance.MaxTorque;
+		// return ShipSpeed;
+	}
+
+	public float GetProjectileSpeed()
+	{
+		return ProjectileSpeed;
 	}
 
 	public double GetSpawnTime()

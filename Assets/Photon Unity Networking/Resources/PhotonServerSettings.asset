@@ -43,4 +43,5 @@ MonoBehaviour:
   - RequestForPickupTimes
   - TaggedPlayer
   - _onDieMessageReceived
+  - OnDieMessageReceived
   DisableAutoOpenWizard: 1

@@ -181,8 +181,8 @@ MonoBehaviour:
   currentMasterID: -1
   isRuntimeInstantiated: 0
   Damage: 50
-  Speed: 0.64
-  Lifespan: 1
+  Speed: 20
+  Lifespan: 5
   Owner: 0
 --- !u!212 &212315056112626036
 SpriteRenderer:

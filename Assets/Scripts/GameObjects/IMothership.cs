@@ -27,6 +27,8 @@ public interface IUnitInfo
 	int GetEnergyCost();
 	float GetHealth();
 	float GetDamage();
-	float GetAttackSpeed();
+	float GetFireRate();
+	float GetShipSpeed();
+	float GetProjectileSpeed();
 	double GetSpawnTime();
 }

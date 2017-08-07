@@ -30,7 +30,7 @@ public class Player : Ship {
 
         Debug.DrawLine(OrbitTarget.position, _nextOrbitPoint);
 
-        Direction = (_nextOrbitPoint - transform.position);
+        _targetDirection = (_nextOrbitPoint - transform.position);
     }
 
 
