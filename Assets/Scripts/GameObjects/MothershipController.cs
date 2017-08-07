@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MothershipController : PhotonView, IMothership, IMothershipSpawner {
 	private Transform _transform;
-	public List<Ship> Ships = new List<Ship>();
+	public List<Ship> _ships = new List<Ship>();
 	private ISpawnData[] _units;
 
     Vector3 _serverPosition = Vector3.zero;
@@ -79,5 +79,10 @@ public class MothershipController : PhotonView, IMothership, IMothershipSpawner 
 	public Transform GetTransform()
 	{
 		return _transform;
+	}
+
+	public List<Ship> GetShips()
+	{
+		return _ships;
 	}
 }

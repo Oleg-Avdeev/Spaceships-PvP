@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public interface IMothershipSpawner {
 	ISpawnData[] GetSpawnData();
@@ -7,6 +8,7 @@ public interface IMothershipSpawner {
 
 public interface IMothership {
 	Transform GetTransform();
+	List<Ship> GetShips();
 }
 
 public interface ISpawnData

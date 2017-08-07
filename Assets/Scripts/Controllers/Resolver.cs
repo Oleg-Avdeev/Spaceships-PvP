@@ -12,7 +12,7 @@ public class Resolver {
 		}
 	}
 
-    public const int PLAYERS_COUNT = 2;
+    public const int PLAYERS_COUNT = 1;
 
 	private INetworkManager _networkManager = null;
 	public INetworkManager NetworkManager
