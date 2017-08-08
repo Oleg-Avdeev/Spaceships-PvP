@@ -13,7 +13,7 @@ public class UnitInfo : IUnitInfo
 	[SerializeField] private float FireRate;
 	[SerializeField] private float ShipSpeed;
 	[SerializeField] private float ProjectileSpeed;
-	[SerializeField] private double SpawnTime;
+	[SerializeField] private float SpawnTime;
 
 	public int GetIndex()
 	{
@@ -37,38 +37,37 @@ public class UnitInfo : IUnitInfo
 
 	public int GetEnergyCost()
 	{
-		return EnergyCost;
+		return RemoteSettings.GetInt($"{GetTitle()}-EnergyCost", EnergyCost); // EnergyCost;
 	}
 
 	public float GetHealth()
 	{
-		return Health;
+		return RemoteSettings.GetFloat($"{GetTitle()}-Health", Health); // Health;
 	}
 
 	public float GetDamage()
 	{
-		return Damage;
+		return RemoteSettings.GetFloat($"{GetTitle()}-Damage", Damage); // Damage;
 	}
 
 	public float GetFireRate()
 	{
-		return FireRate;
+		return RemoteSettings.GetFloat($"{GetTitle()}-FireRate", FireRate); // FireRate;
 	}
 
 	public float GetShipSpeed()
 	{
-		return GameController.Instance.MaxTorque;
-		// return ShipSpeed;
+		return RemoteSettings.GetFloat($"{GetTitle()}-ShipSpeed", ShipSpeed); // ShipSpeed;
 	}
 
 	public float GetProjectileSpeed()
 	{
-		return ProjectileSpeed;
+		return RemoteSettings.GetFloat($"{GetTitle()}-ProjectileSpeed", ProjectileSpeed); // ProjectileSpeed;
 	}
 
 	public double GetSpawnTime()
 	{
-		return SpawnTime;
+		return RemoteSettings.GetFloat($"{GetTitle()}-SpawnTime", SpawnTime); // SpawnTime;
 	}
 
 }

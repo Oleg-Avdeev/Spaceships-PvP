@@ -16,6 +16,7 @@ public class Ship : PhotonView
     private Vector3 _serverDirection = Vector3.zero;
     private Vector3 _serverPosition = Vector3.zero;
     private SpriteRenderer _spriteRenderer;
+    private float _lastLogicUpdateTime;
 
     void OnPhotonInstantiate(PhotonMessageInfo info)
     {
@@ -31,27 +32,23 @@ public class Ship : PhotonView
                 return;
             }
 
-            _unit = Resolver.Instance.Units.Collection[id];
-            _health = _unit.GetHealth();
-            _isDead = false;
-
-            gameObject.name = _unit.GetTitle() + "-for-" + ownerId;
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _transform = transform;
+            _unit = Resolver.Instance.Units.Collection[id];    
+            if (ownerId != PhotonNetwork.masterClient.ID)
+                _direction = Vector3.down;        
+            ParseIUnitInfo();
+            ColorShip();
 
             if (isMine)
             {
                 MyMothership = Resolver.Instance.RoomController.GetMyMothership();
                 EnemyMothership = Resolver.Instance.RoomController.GetEnemyMothership();
-                _spriteRenderer.sprite = _unit.GetBlueIcon();
             }
             else
             {
                 EnemyMothership = Resolver.Instance.RoomController.GetMyMothership();
                 MyMothership = Resolver.Instance.RoomController.GetEnemyMothership();
-                _spriteRenderer.sprite = _unit.GetRedIcon();
             }
-
+            
             _transform.position = MyMothership.GetTransform().position;
         }
         else
@@ -64,6 +61,27 @@ public class Ship : PhotonView
         }
     }
 
+    protected void ParseIUnitInfo()
+    {
+        gameObject.name = _unit.GetTitle() + "-by-" + ownerId;
+        _health = _unit.GetHealth();
+        _isDead = false;
+        _transform = transform;
+
+        Debug.Log(_unit.GetTitle());
+        if (_unit.GetTitle() == "Dreadnought") _direction = Vector3.zero;
+    }
+
+    protected void ColorShip()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (isMine)
+            _spriteRenderer.sprite = _unit.GetBlueIcon();
+        else
+            _spriteRenderer.sprite = _unit.GetRedIcon();
+            
+    }
+
     void Start()
     {
         if (MyMothership == null) return;
@@ -73,9 +91,23 @@ public class Ship : PhotonView
             Turrets[i].Initialize(this);
     }
 
+    public void Update()
+    {
+        if (isMine)
+            if (Time.time - _lastLogicUpdateTime >= 0.1f)
+            {
+                _lastLogicUpdateTime = Time.time;
+                LogicUpdate();
+            }
+    }
+
+    public virtual void LogicUpdate() { }
+
     void LateUpdate()
     {
         _direction = Vector3.RotateTowards(_direction, _targetDirection, Time.deltaTime, 0).normalized;
+        _direction.z = 0;
+        
         _transform.position += (_unit.GetShipSpeed() * Time.deltaTime) * _direction;
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
         _transform.eulerAngles = new Vector3(0, 0, angle);

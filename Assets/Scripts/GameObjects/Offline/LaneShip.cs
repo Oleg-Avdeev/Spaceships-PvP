@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FighterShip : Ship
+public class LaneShip : Ship
 {
     private Transform _target;
     private Ship _shipTarget;
@@ -13,6 +13,32 @@ public class FighterShip : Ship
     private List<Ship> _ships = new List<Ship>();
 
     private Vector3 _screenPosition;
+    private Vector3[] _orbitPoints;
+    private int _pointsCount = 15;
+    private int _laneOffset = 0;
+    private int _currentPoint = 0;
+    private int _attackDistance = 5;
+   
+    private void _createPoints()
+    {
+        //CORRECT
+        Vector3 targetDirection = EnemyMothership.GetTransform().position - _transform.position;
+        
+        //TEST
+        _laneOffset = Random.Range(0, 3) - 1;
+        // _laneOffset = - 1;
+        // Vector3 targetDirection = new Vector3(0,17,0) - _transform.position;
+        
+        float stepLength = targetDirection.magnitude / _pointsCount;
+
+        _orbitPoints = new Vector3[_pointsCount];
+        _orbitPoints[0] = _transform.position + _laneOffset*3*Vector3.right;
+        for (int i = 1; i < _pointsCount; i++)
+        {
+            float dx = -_laneOffset * ((float)_pointsCount/2 - i)/2.2f;
+            _orbitPoints[i] = _orbitPoints[i - 1] + targetDirection.normalized * stepLength - dx*Vector3.right;
+        }
+    }
 
     private void _updateTarget()
     {
@@ -24,6 +50,7 @@ public class FighterShip : Ship
         for (int shipI = 0; shipI < _ships.Count; shipI++)
         {
             if (_ships[shipI] == null) continue;
+            if ((_ships[shipI].transform.position - _transform.position).magnitude > _attackDistance) continue;
             _target = _ships[shipI].transform;
             _shipTarget = _ships[shipI];
             
@@ -38,12 +65,20 @@ public class FighterShip : Ship
 
         if (!_isOnScreen())
         {
-            _targetDirection = -(Vector2)transform.position;
+            _targetDirection = -_transform.position;
             return;
         }
 
-        if (_target == null) _updateTarget();
-        if (_target == null) return;
+        if (_target == null)
+        {
+            _updateTarget();
+        }
+
+        if (_target == null)
+        {
+            _followPath();
+            return;
+        } 
 
         if (_timeForManeur > 5)
         {
@@ -61,12 +96,29 @@ public class FighterShip : Ship
             _followTarget();
         }
 
-        if (!_changingCourse && (_target.position - transform.position).magnitude < 10)
+        if (!_changingCourse && (_target.position - _transform.position).magnitude < 10)
         {
             _changingCourse = true;
             _maneurVector = Random.insideUnitSphere;
             _timeForManeur = -3;
         }
+    }
+
+    private void _followPath()
+    {
+            if (_currentPoint >= _pointsCount) return;
+
+            if (_orbitPoints == null) _createPoints();
+            
+            // //DEBUG
+            // for (int i = 1; i < _pointsCount; i++)
+            //     Debug.DrawLine(_orbitPoints[i-1], _orbitPoints[i]);
+
+            if ((_orbitPoints[_currentPoint] - _transform.position).magnitude < 7.5)
+                if (_currentPoint < _pointsCount - 1)
+                    _currentPoint++;
+
+            _targetDirection = (_orbitPoints[_currentPoint] - _transform.position);
     }
 
     private bool _isOnScreen()

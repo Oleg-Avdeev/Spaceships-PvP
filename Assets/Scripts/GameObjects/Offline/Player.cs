@@ -21,7 +21,7 @@ public class Player : Ship {
         }
     }
 
-    public void Update()
+    public override void LogicUpdate()
     {
         if (_nextOrbitPoint == Vector3.zero)
             _createPoint();

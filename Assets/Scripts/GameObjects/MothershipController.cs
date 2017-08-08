@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MothershipController : PhotonView, IMothership, IMothershipSpawner {
-	private Transform _transform;
-	public List<Ship> _ships = new List<Ship>();
-	private ISpawnData[] _units;
+public class MothershipController : Ship, IMothership, IMothershipSpawner {
 
-    Vector3 _serverPosition = Vector3.zero;
-    Quaternion _serverRotation = Quaternion.identity;
+	private ISpawnData[] _units;
 
 	private class SpawnData : ISpawnData
 	{
@@ -45,14 +41,31 @@ public class MothershipController : PhotonView, IMothership, IMothershipSpawner 
 		{
 			if(instantiationData.Length > 0)
 			{
-				int[] shipsInStack = (int[])instantiationData[0];
+				_transform = transform;
+				int[] shipsInStack = (int[])instantiationData[1];
+				int dreadnoughtID = (int)instantiationData[0];
+
+					if (ownerId == PhotonNetwork.masterClient.ID)
+						transform.position = new Vector3(0,-30,0);
+					else transform.position = new Vector3(0,30,0);
+					
 				_units = new SpawnData[shipsInStack.Length];
+
 				for(int i = 0; i < _units.Length; i++)
 				{
 					_units[i] = new SpawnData(Resolver.Instance.Units.Collection[shipsInStack[i]]);
 				}
+
+				_unit = Resolver.Instance.Units.Collection[dreadnoughtID];
+				ParseIUnitInfo();
+				ColorShip();
 			}
 		}
+	}
+
+	public override void LogicUpdate()
+	{
+		_targetDirection = Vector2.zero;
 	}
 
 	public ISpawnData[] GetSpawnData()
@@ -83,6 +96,7 @@ public class MothershipController : PhotonView, IMothership, IMothershipSpawner 
 
 	public List<Ship> GetShips()
 	{
-		return _ships;
+		if (isMine) return Resolver.Instance.RoomController.GetMyShips();
+		else return Resolver.Instance.RoomController.GetEnemyShips();
 	}
 }

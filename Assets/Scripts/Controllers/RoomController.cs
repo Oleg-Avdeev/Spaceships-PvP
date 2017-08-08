@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class RoomController : MonoBehaviour, IRoomController
 {
     private IGameScreenReceiver _dataReceiver = null;
     private MothershipController _myMothership = null, _enemyMothership = null;
+	private List<Ship> _myShips = new List<Ship>();
+	private List<Ship> _enemyShips = new List<Ship>();
 
     private Coroutine _checkInstantiationsCoroutine = null;
     private bool _isRoomReadyToPlay = false;
@@ -18,7 +21,14 @@ public class RoomController : MonoBehaviour, IRoomController
         }
 
 		Debug.Log("Instantiate Mothership for " + PhotonNetwork.player.ID);
-        PhotonNetwork.Instantiate("Mothership", new Vector3(Random.Range(-2f, 2f)*6, Random.Range(-2f, 2f)*6, 0), Quaternion.identity, 0, new object[] { new int[] { 0, 1, 2 } });
+        
+        PhotonNetwork.Instantiate("Dreadnought", 
+        Vector3.zero,
+        Quaternion.identity, 0, new object[] { 5, new int[] { 0, 1, 2, 3, 4 } });
+
+        if (!PhotonNetwork.isMasterClient)
+            Camera.main.transform.localRotation = Quaternion.Euler(0,0,180);
+        else Camera.main.transform.localRotation = Quaternion.identity;
 
         _isRoomReadyToPlay = false;
         _checkInstantiationsCoroutine = StartCoroutine("CheckInstantiations");
@@ -89,6 +99,16 @@ public class RoomController : MonoBehaviour, IRoomController
                 break;
             }
         }
+    }
+
+    public List<Ship> GetMyShips()
+    {
+        return _myShips;
+    }
+
+    public List<Ship> GetEnemyShips()
+    {
+        return _enemyShips;
     }
 
     private void ClearRoom()

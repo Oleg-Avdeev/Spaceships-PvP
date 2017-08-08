@@ -9,37 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1201054066121626}
+  m_RootGameObject: {fileID: 1266099780373742}
   m_IsPrefabParent: 1
---- !u!1 &1201054066121626
+--- !u!1 &1138989502379348
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4949610393021256}
-  - component: {fileID: 212921324615789226}
-  - component: {fileID: 96247288834610180}
-  - component: {fileID: 70371417858896710}
-  - component: {fileID: 114501545023988964}
-  - component: {fileID: 50798311542316636}
-  m_Layer: 0
-  m_Name: Attacker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1758218028776778
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4695686049817794}
-  - component: {fileID: 114023691921531358}
+  - component: {fileID: 4492741079348824}
+  - component: {fileID: 114096526306522206}
   m_Layer: 0
   m_Name: Blue Turret
   m_TagString: Untagged
@@ -47,40 +27,90 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4695686049817794
+--- !u!1 &1266099780373742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4656651492499576}
+  - component: {fileID: 212399235989141996}
+  - component: {fileID: 96759359620556196}
+  - component: {fileID: 58626892673863286}
+  - component: {fileID: 114433704246944270}
+  - component: {fileID: 50906675442218266}
+  m_Layer: 0
+  m_Name: Destroyer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1308357556845968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4206866481170326}
+  - component: {fileID: 114251263365185568}
+  m_Layer: 0
+  m_Name: Blue Turret
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4206866481170326
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1758218028776778}
+  m_GameObject: {fileID: 1308357556845968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 1.0000023, y: 1.0000043, z: 1.0000023}
+  m_LocalPosition: {x: 0.41, y: -0.17000008, z: 0}
+  m_LocalScale: {x: 0.6089705, y: 0.6089705, z: 6.6986756}
   m_Children: []
-  m_Father: {fileID: 4949610393021256}
+  m_Father: {fileID: 4656651492499576}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4492741079348824
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1138989502379348}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.42, y: -0.17, z: 0}
+  m_LocalScale: {x: 0.6089705, y: 0.6089705, z: 6.6986756}
+  m_Children: []
+  m_Father: {fileID: 4656651492499576}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4949610393021256
+--- !u!4 &4656651492499576
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201054066121626}
+  m_GameObject: {fileID: 1266099780373742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6421156, y: 1.6421156, z: 1.6421156}
   m_Children:
-  - {fileID: 4695686049817794}
+  - {fileID: 4492741079348824}
+  - {fileID: 4206866481170326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50798311542316636
+--- !u!50 &50906675442218266
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201054066121626}
+  m_GameObject: {fileID: 1266099780373742}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -90,16 +120,16 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70371417858896710
-CapsuleCollider2D:
+--- !u!58 &58626892673863286
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201054066121626}
+  m_GameObject: {fileID: 1266099780373742}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -107,15 +137,15 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.59, y: 6.14}
-  m_Direction: 0
---- !u!96 &96247288834610180
+  serializedVersion: 2
+  m_Radius: 0.44
+--- !u!96 &96759359620556196
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201054066121626}
+  m_GameObject: {fileID: 1266099780373742}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -206,29 +236,43 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
---- !u!114 &114023691921531358
+--- !u!114 &114096526306522206
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1758218028776778}
+  m_GameObject: {fileID: 1138989502379348}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2629af955916b74b93996595816b3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TickLength: 2
-  ShootingAngle: 30
+  TickLength: 0.25
+  ShootingAngle: 10
   ShootingDistance: 10
---- !u!114 &114501545023988964
+--- !u!114 &114251263365185568
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201054066121626}
+  m_GameObject: {fileID: 1308357556845968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce5e8dcf01793d428572432bf6e7add, type: 3}
+  m_Script: {fileID: 11500000, guid: a2629af955916b74b93996595816b3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TickLength: 0.25
+  ShootingAngle: 10
+  ShootingDistance: 10
+--- !u!114 &114433704246944270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1266099780373742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7670927817da2644be3d0325fd237f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ownerId: 0
@@ -240,20 +284,21 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114501545023988964}
+  - {fileID: 114433704246944270}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
   Turrets:
-  - {fileID: 114023691921531358}
---- !u!212 &212921324615789226
+  - {fileID: 114096526306522206}
+  - {fileID: 114251263365185568}
+--- !u!212 &212399235989141996
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201054066121626}
+  m_GameObject: {fileID: 1266099780373742}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -280,12 +325,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 828afcf4baf045544bde0fb199722a0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b4db39335049ad4ebceb413b9936c2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.7, y: 0.94}
+  m_Size: {x: 1.17, y: 1.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

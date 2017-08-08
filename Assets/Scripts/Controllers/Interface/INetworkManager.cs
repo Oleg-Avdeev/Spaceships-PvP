@@ -1,4 +1,6 @@
-﻿public enum GameState
+﻿using System.Collections.Generic;
+
+public enum GameState
 {
     NotConnected,
     ConnectingToServer,
@@ -32,6 +34,8 @@ public interface IRoomController
     void TrySpawnUnit(int id);
     IMothership GetMyMothership();
     IMothership GetEnemyMothership();
+    List<Ship> GetMyShips();
+    List<Ship> GetEnemyShips();
 }
 
 public interface IGameScreenReceiver

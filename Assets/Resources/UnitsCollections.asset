@@ -14,28 +14,67 @@ MonoBehaviour:
   Collection:
   - Index: 0
     Title: Attacker
-    Icon: {fileID: 21300000, guid: 0a20ae6a1f006e7418b77978d9964252, type: 3}
-    RedIcon: {fileID: 21300000, guid: 75e744c8710ad36439ceb9e41b81658f, type: 3}
-    EnergyCost: 1
-    Health: 10
-    Damage: 1
-    AttackSpeed: 1
-    SpawnTime: 5
-  - Index: 1
-    Title: Defender
-    Icon: {fileID: 21300000, guid: f572975b324f0b64eadc40e460cc3733, type: 3}
-    RedIcon: {fileID: 21300000, guid: 99a89e3eaa6901f4d8adf63013422f05, type: 3}
-    EnergyCost: 1
-    Health: 20
-    Damage: 1
-    AttackSpeed: 0.5
-    SpawnTime: 7
-  - Index: 2
-    Title: Kamikadze
-    Icon: {fileID: 21300000, guid: 9698a5933cc296c4c97ffc07f8df733e, type: 3}
-    RedIcon: {fileID: 21300000, guid: 4004c8391158be34f9ef1346bf15aa30, type: 3}
+    Icon: {fileID: 21300000, guid: 828afcf4baf045544bde0fb199722a0b, type: 3}
+    RedIcon: {fileID: 21300000, guid: 65fb95f140fc1fa4a9e2b62a055fe886, type: 3}
     EnergyCost: 1
     Health: 3
-    Damage: 10
-    AttackSpeed: 0
-    SpawnTime: 3
+    Damage: 3
+    FireRate: 0
+    ShipSpeed: 3
+    ProjectileSpeed: 25
+    SpawnTime: 5
+  - Index: 1
+    Title: Bomber
+    Icon: {fileID: 21300000, guid: 9c59b3816eae5174c9042688cf2fdbcf, type: 3}
+    RedIcon: {fileID: 21300000, guid: 2e2e08de650030e45898c98f571b9725, type: 3}
+    EnergyCost: 1
+    Health: 4
+    Damage: 4
+    FireRate: 0
+    ShipSpeed: 2
+    ProjectileSpeed: 25
+    SpawnTime: 7
+  - Index: 2
+    Title: Interceptor
+    Icon: {fileID: 21300000, guid: 15a5716851af2bf42ba33814fed7e381, type: 3}
+    RedIcon: {fileID: 21300000, guid: 696b0ce7c7597164da958c54796a1aed, type: 3}
+    EnergyCost: 1
+    Health: 1
+    Damage: 3
+    FireRate: 0
+    ShipSpeed: 5
+    ProjectileSpeed: 25
+    SpawnTime: 1
+  - Index: 3
+    Title: Destroyer
+    Icon: {fileID: 21300000, guid: 4b4db39335049ad4ebceb413b9936c2f, type: 3}
+    RedIcon: {fileID: 21300000, guid: 7dba928d7708f1742baf5353ceb4b401, type: 3}
+    EnergyCost: 1
+    Health: 5
+    Damage: 4
+    FireRate: 1
+    ShipSpeed: 1
+    ProjectileSpeed: 20
+    SpawnTime: 0
+  - Index: 3
+    Title: Sniper
+    Icon: {fileID: 21300000, guid: f696e6c92418fc94bb133c37bfad119e, type: 3}
+    RedIcon: {fileID: 21300000, guid: bdb41bee985412748897a7954688c8a2, type: 3}
+    EnergyCost: 1
+    Health: 2
+    Damage: 5
+    FireRate: 1
+    ShipSpeed: 2
+    ProjectileSpeed: 20
+    SpawnTime: 0
+  - Index: 3
+    Title: Dreadnought
+    Icon: {fileID: 21300000, guid: 93bf66ae3260e6e4981b3d0f0bea3737, type: 3}
+    RedIcon: {fileID: 21300000, guid: b11005bd7a88b9d4aaf424f0ba867601, type: 3}
+    EnergyCost: 1
+    Health: 1000
+    Damage: 1
+    FireRate: 1
+    ShipSpeed: 0
+    ProjectileSpeed: 20
+    SpawnTime: 0
