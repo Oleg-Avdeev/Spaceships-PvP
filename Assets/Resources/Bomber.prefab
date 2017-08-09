@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4353885225799452}
   - component: {fileID: 212643321871043270}
   - component: {fileID: 96616185564757620}
-  - component: {fileID: 70380738690205310}
-  - component: {fileID: 114170310116053090}
   - component: {fileID: 50013490756317868}
+  - component: {fileID: 58275361240269154}
+  - component: {fileID: 114374765538553844}
   m_Layer: 0
   m_Name: Bomber
   m_TagString: Untagged
@@ -94,8 +94,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70380738690205310
-CapsuleCollider2D:
+--- !u!58 &58275361240269154
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -107,8 +107,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.59, y: 6.14}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.46999997
 --- !u!96 &96616185564757620
 TrailRenderer:
   serializedVersion: 2
@@ -206,34 +206,6 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
---- !u!114 &114170310116053090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1064810856091684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce5e8dcf01793d428572432bf6e7add, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  OwnerShipWasTransfered: 0
-  prefixBackup: -1
-  synchronization: 3
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 114170310116053090}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
-  currentMasterID: -1
-  isRuntimeInstantiated: 0
-  Turrets:
-  - {fileID: 114254237513737468}
 --- !u!114 &114254237513737468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,6 +220,34 @@ MonoBehaviour:
   TickLength: 0.25
   ShootingAngle: 10
   ShootingDistance: 10
+--- !u!114 &114374765538553844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064810856091684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7670927817da2644be3d0325fd237f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 114374765538553844}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
+  Turrets:
+  - {fileID: 114254237513737468}
 --- !u!212 &212643321871043270
 SpriteRenderer:
   m_ObjectHideFlags: 1

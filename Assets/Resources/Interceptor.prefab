@@ -38,8 +38,8 @@ GameObject:
   - component: {fileID: 212748352272828142}
   - component: {fileID: 96742406567025586}
   - component: {fileID: 58553929770912288}
-  - component: {fileID: 114932381865888322}
   - component: {fileID: 50493768116466416}
+  - component: {fileID: 114603699224463326}
   m_Layer: 0
   m_Name: Interceptor
   m_TagString: Untagged
@@ -220,7 +220,7 @@ MonoBehaviour:
   TickLength: 0.25
   ShootingAngle: 10
   ShootingDistance: 10
---- !u!114 &114932381865888322
+--- !u!114 &114603699224463326
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1256862977359798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce5e8dcf01793d428572432bf6e7add, type: 3}
+  m_Script: {fileID: 11500000, guid: d7670927817da2644be3d0325fd237f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ownerId: 0
@@ -240,15 +240,14 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114932381865888322}
+  - {fileID: 114603699224463326}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 1
-  instantiationId: 1
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
   Turrets:
   - {fileID: 114267684747819696}
-  - {fileID: 0}
 --- !u!212 &212748352272828142
 SpriteRenderer:
   m_ObjectHideFlags: 1

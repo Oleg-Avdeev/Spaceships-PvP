@@ -38,15 +38,15 @@ public class Ship : PhotonView
             ParseIUnitInfo();
             ColorShip();
 
-            if (isMine)
+            if (isMine == PhotonNetwork.isMasterClient)
             {
-                MyMothership = Resolver.Instance.RoomController.GetMyMothership();
-                EnemyMothership = Resolver.Instance.RoomController.GetEnemyMothership();
+                MyMothership = Resolver.Instance.RoomController.GetMasterMothership();
+                EnemyMothership = Resolver.Instance.RoomController.GetClientMothership();
             }
             else
             {
-                EnemyMothership = Resolver.Instance.RoomController.GetMyMothership();
-                MyMothership = Resolver.Instance.RoomController.GetEnemyMothership();
+                EnemyMothership = Resolver.Instance.RoomController.GetMasterMothership();
+                MyMothership = Resolver.Instance.RoomController.GetClientMothership();
             }
             
             _transform.position = MyMothership.GetTransform().position;
@@ -88,7 +88,7 @@ public class Ship : PhotonView
         MyMothership.GetShips().Add(this);
 
         for (int i = 0; i < Turrets.Length; i++)
-            Turrets[i].Initialize(this);
+            Turrets[i].Initialize(this, _unit.GetFireRate());
     }
 
     public void Update()
@@ -105,8 +105,8 @@ public class Ship : PhotonView
 
     void LateUpdate()
     {
-        _direction = Vector3.RotateTowards(_direction, _targetDirection, Time.deltaTime, 0).normalized;
-        _direction.z = 0;
+        _direction = Vector2Extension.RotateTowards(_direction, _targetDirection, 2f).normalized;
+        // _direction = Vector3.RotateTowards(_direction, _targetDirection, 0.1f, 0).normalized;
         
         _transform.position += (_unit.GetShipSpeed() * Time.deltaTime) * _direction;
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
@@ -119,12 +119,14 @@ public class Ship : PhotonView
         {
             stream.SendNext(_targetDirection);
             stream.SendNext(_transform.position);
+            stream.SendNext(_health);
         }
         else
         {
             _targetDirection = (Vector2)stream.ReceiveNext();
             _serverPosition = (Vector3)stream.ReceiveNext();// + _direction * (MaxTorque * PhotonNetwork.GetPing() / 1000f);
-            _transform.position = Vector3.Lerp(_transform.position, _serverPosition, 0.7f);
+            _transform.position = Vector3.Lerp(_transform.position, _serverPosition, 0.7f);   
+            _health = (float)stream.ReceiveNext();
         }
     }
 

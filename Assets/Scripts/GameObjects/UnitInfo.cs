@@ -57,7 +57,7 @@ public class UnitInfo : IUnitInfo
 
 	public float GetShipSpeed()
 	{
-		return RemoteSettings.GetFloat($"{GetTitle()}-ShipSpeed", ShipSpeed); // ShipSpeed;
+		return RemoteSettings.GetFloat($"{GetTitle()}-ShipSpeed", ShipSpeed)*4; // ShipSpeed;
 	}
 
 	public float GetProjectileSpeed()

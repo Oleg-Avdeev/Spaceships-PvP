@@ -32,8 +32,8 @@ public interface IRoomController
     void OnDisconnected();
     void SetOnDataChangedReceiver(IGameScreenReceiver data);
     void TrySpawnUnit(int id);
-    IMothership GetMyMothership();
-    IMothership GetEnemyMothership();
+    IMothership GetMasterMothership();
+    IMothership GetClientMothership();
     List<Ship> GetMyShips();
     List<Ship> GetEnemyShips();
 }

@@ -25,15 +25,15 @@ public abstract class UnitController : PhotonView
             gameObject.name = _unit.GetTitle() + "-for-" + ownerId;
             _transform = transform;
 
-            if (isMine)
+            if (isMine == PhotonNetwork.isMasterClient)
             {
-                _myMothership = Resolver.Instance.RoomController.GetMyMothership();
-                _enemyMothership = Resolver.Instance.RoomController.GetEnemyMothership();
+                _myMothership = Resolver.Instance.RoomController.GetMasterMothership();
+                _enemyMothership = Resolver.Instance.RoomController.GetClientMothership();
             }
             else
             {
-                _enemyMothership = Resolver.Instance.RoomController.GetMyMothership();
-                _myMothership = Resolver.Instance.RoomController.GetEnemyMothership();
+                _enemyMothership = Resolver.Instance.RoomController.GetMasterMothership();
+                _myMothership = Resolver.Instance.RoomController.GetClientMothership();
             }
 
             _transform.position = _myMothership.GetTransform().position;

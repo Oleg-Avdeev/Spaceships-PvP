@@ -12,9 +12,10 @@ public class Turret : ClockMonoBehaviour
     private Rigidbody2D _targetRB = null;
     private Vector2 _shootDirection;
     
-    public void Initialize(Ship parent)
+    public void Initialize(Ship parent, float fireRate)
     {
         _parentShip = parent;
+        TickLength = 1f/fireRate;
     }
 
     public override void OnTick()
@@ -25,7 +26,11 @@ public class Turret : ClockMonoBehaviour
         if (_target == null) return;
         
         _shootDirection = _target.transform.position - transform.position;
-        if (_shootDirection.magnitude > ShootingDistance) _selectTarget();
+        if (_shootDirection.magnitude > ShootingDistance) 
+        {
+            _target = null;
+            _selectTarget();
+        }
         if (Vector3.Angle(_parentShip.GetDirection(), _shootDirection) > ShootingAngle) return;
 
         _shootDirection = _shootAheadVector(_shootDirection, _target);
@@ -44,6 +49,7 @@ public class Turret : ClockMonoBehaviour
             {
                 if (_ships[shipI] == null) continue;
                 _shootDirection = _ships[shipI].transform.position - transform.position;
+                
                 if (_shootDirection.magnitude > ShootingDistance) continue;
                 if (Vector3.Angle(_parentShip.GetDirection(), _shootDirection) > ShootingAngle) continue;
                 _target = _ships[shipI];

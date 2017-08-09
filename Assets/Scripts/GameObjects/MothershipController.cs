@@ -57,6 +57,12 @@ public class MothershipController : Ship, IMothership, IMothershipSpawner {
 				}
 
 				_unit = Resolver.Instance.Units.Collection[dreadnoughtID];
+				
+				if (isMine)
+					Resolver.Instance.RoomController.GetMyShips().Add(this);
+				else 
+					Resolver.Instance.RoomController.GetEnemyShips().Add(this);
+				
 				ParseIUnitInfo();
 				ColorShip();
 			}

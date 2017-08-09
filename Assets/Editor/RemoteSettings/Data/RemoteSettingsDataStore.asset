@@ -43,7 +43,7 @@ MonoBehaviour:
     value: 25
     type: float
   - key: Interceptor-ShipSpeed
-    value: 5
+    value: 1
     type: float
   - key: Interceptor-ProjectileSpeed
     value: 20

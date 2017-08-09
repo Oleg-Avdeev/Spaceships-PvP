@@ -26,6 +26,7 @@ public class LaneShip : Ship
         
         //TEST
         _laneOffset = Random.Range(0, 3) - 1;
+        if (_laneOffset == 0) _laneOffset = -1;
         // _laneOffset = - 1;
         // Vector3 targetDirection = new Vector3(0,17,0) - _transform.position;
         
@@ -50,6 +51,7 @@ public class LaneShip : Ship
         for (int shipI = 0; shipI < _ships.Count; shipI++)
         {
             if (_ships[shipI] == null) continue;
+
             if ((_ships[shipI].transform.position - _transform.position).magnitude > _attackDistance) continue;
             _target = _ships[shipI].transform;
             _shipTarget = _ships[shipI];
@@ -80,7 +82,7 @@ public class LaneShip : Ship
             return;
         } 
 
-        if (_timeForManeur > 5)
+        if (_timeForManeur > 8/_unit.GetShipSpeed())
         {
             _changingCourse = false;
             _timeForManeur = 0;
@@ -110,9 +112,9 @@ public class LaneShip : Ship
 
             if (_orbitPoints == null) _createPoints();
             
-            // //DEBUG
-            // for (int i = 1; i < _pointsCount; i++)
-            //     Debug.DrawLine(_orbitPoints[i-1], _orbitPoints[i]);
+            //DEBUG
+            for (int i = 1; i < _pointsCount; i++)
+                Debug.DrawLine(_orbitPoints[i-1], _orbitPoints[i], Color.white, 2);
 
             if ((_orbitPoints[_currentPoint] - _transform.position).magnitude < 7.5)
                 if (_currentPoint < _pointsCount - 1)

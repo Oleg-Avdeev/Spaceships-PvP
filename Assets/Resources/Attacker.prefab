@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4949610393021256}
   - component: {fileID: 212921324615789226}
   - component: {fileID: 96247288834610180}
-  - component: {fileID: 70371417858896710}
-  - component: {fileID: 114501545023988964}
   - component: {fileID: 50798311542316636}
+  - component: {fileID: 58124163799702010}
+  - component: {fileID: 114593586590344178}
   m_Layer: 0
   m_Name: Attacker
   m_TagString: Untagged
@@ -94,8 +94,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70371417858896710
-CapsuleCollider2D:
+--- !u!58 &58124163799702010
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -107,8 +107,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.59, y: 6.14}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.47
 --- !u!96 &96247288834610180
 TrailRenderer:
   serializedVersion: 2
@@ -220,7 +220,7 @@ MonoBehaviour:
   TickLength: 2
   ShootingAngle: 30
   ShootingDistance: 10
---- !u!114 &114501545023988964
+--- !u!114 &114593586590344178
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201054066121626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce5e8dcf01793d428572432bf6e7add, type: 3}
+  m_Script: {fileID: 11500000, guid: d7670927817da2644be3d0325fd237f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ownerId: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114501545023988964}
+  - {fileID: 114593586590344178}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
