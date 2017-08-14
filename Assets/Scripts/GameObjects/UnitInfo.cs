@@ -37,37 +37,44 @@ public class UnitInfo : IUnitInfo
 
 	public int GetEnergyCost()
 	{
-		return RemoteSettings.GetInt($"{GetTitle()}-EnergyCost", EnergyCost); // EnergyCost;
+		return RemoteSettings.GetInt($"{GetTitle()}-EnergyCost", EnergyCost); 
+		// return EnergyCost;
 	}
 
 	public float GetHealth()
 	{
-		return RemoteSettings.GetFloat($"{GetTitle()}-Health", Health); // Health;
+		return RemoteSettings.GetFloat($"{GetTitle()}-Health", Health); 
+		// return Health;
 	}
 
 	public float GetDamage()
 	{
-		return RemoteSettings.GetFloat($"{GetTitle()}-Damage", Damage); // Damage;
+		return RemoteSettings.GetFloat($"{GetTitle()}-Damage", Damage); 
+		// return Damage;
 	}
 
 	public float GetFireRate()
 	{
-		return RemoteSettings.GetFloat($"{GetTitle()}-FireRate", FireRate); // FireRate;
+		return RemoteSettings.GetFloat($"{GetTitle()}-FireRate", FireRate); 
+		// return FireRate;
 	}
 
 	public float GetShipSpeed()
 	{
-		return RemoteSettings.GetFloat($"{GetTitle()}-ShipSpeed", ShipSpeed)*4; // ShipSpeed;
+		return RemoteSettings.GetFloat($"{GetTitle()}-ShipSpeed", ShipSpeed)*0.95f; 
+		// return ShipSpeed;
 	}
 
 	public float GetProjectileSpeed()
 	{
-		return RemoteSettings.GetFloat($"{GetTitle()}-ProjectileSpeed", ProjectileSpeed); // ProjectileSpeed;
+		return RemoteSettings.GetFloat($"{GetTitle()}-ProjectileSpeed", ProjectileSpeed); 
+		// return ProjectileSpeed;
 	}
 
 	public double GetSpawnTime()
 	{
-		return RemoteSettings.GetFloat($"{GetTitle()}-SpawnTime", SpawnTime); // SpawnTime;
+		return RemoteSettings.GetFloat($"{GetTitle()}-SpawnTime", SpawnTime); 
+		// return SpawnTime;
 	}
 
 }

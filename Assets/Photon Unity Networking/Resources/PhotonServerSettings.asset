@@ -44,4 +44,6 @@ MonoBehaviour:
   - TaggedPlayer
   - _onDieMessageReceived
   - OnDieMessageReceived
+  - DealDamage
+  - SyncExplode
   DisableAutoOpenWizard: 1

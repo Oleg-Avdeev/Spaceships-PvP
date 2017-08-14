@@ -31,11 +31,14 @@ public interface IRoomController
     void StartGame();
     void OnDisconnected();
     void SetOnDataChangedReceiver(IGameScreenReceiver data);
-    void TrySpawnUnit(int id);
+    bool TrySpawnUnit(int id, int shipLane);
+    int GetCurrentEnergy();
+    bool GetShowTip();
+    void ToggleShowTip();
     IMothership GetMasterMothership();
     IMothership GetClientMothership();
-    List<Ship> GetMyShips();
-    List<Ship> GetEnemyShips();
+    List<Ship> GetMyShips(int owner);
+    List<Ship> GetEnemyShips(int owner);
 }
 
 public interface IGameScreenReceiver

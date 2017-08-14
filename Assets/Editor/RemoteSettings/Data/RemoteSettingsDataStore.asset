@@ -13,37 +13,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rsKeyList:
   - key: Attacker-EnergyCost
-    value: 1
+    value: 6
     type: int
   - key: Attacker-Health
-    value: 3
+    value: 25
     type: float
   - key: Attacker-Damage
-    value: 3
+    value: 5
     type: float
   - key: Attacker-FireRate
-    value: 1
+    value: 1.6
     type: float
   - key: Attacker-ShipSpeed
-    value: 3
+    value: 4
     type: float
   - key: Attacker-ProjectileSpeed
     value: 20
     type: float
   - key: Interceptor-EnergyCost
-    value: 1
+    value: 6
     type: int
   - key: Interceptor-Health
-    value: 1
+    value: 12
     type: float
   - key: Interceptor-Damage
-    value: 3
+    value: 6
     type: float
   - key: Interceptor-FireRate
-    value: 25
+    value: 1.8
     type: float
   - key: Interceptor-ShipSpeed
-    value: 1
+    value: 6
     type: float
   - key: Interceptor-ProjectileSpeed
     value: 20
@@ -55,58 +55,55 @@ MonoBehaviour:
     value: 5
     type: float
   - key: Destroyer-Health
-    value: 5
+    value: 45
     type: float
   - key: Destroyer-Damage
-    value: 4
+    value: 6
     type: float
   - key: Destroyer-ShipSpeed
-    value: 1
+    value: 1.5
     type: float
   - key: Destroyer-EnergyCost
-    value: 1
+    value: 28
     type: int
   - key: Destroyer-FireRate
-    value: 1
+    value: 1.2
     type: float
   - key: Destroyer-SpawnTime
     value: 7
     type: float
   - key: Destroyer-ProjectileSpeed
-    value: 20
+    value: 35
     type: float
   - key: Sniper-Health
-    value: 2
+    value: 15
     type: float
   - key: Sniper-Damage
-    value: 5
+    value: 15
     type: float
   - key: Sniper-ShipSpeed
-    value: 2
+    value: 3
     type: float
   - key: Sniper-EnergyCost
-    value: 1
+    value: 20
     type: int
   - key: Sniper-FireRate
-    value: 2
+    value: 0.8
     type: float
   - key: Sniper-ProjectileSpeed
-    value: 25
+    value: 35
     type: float
   - key: Sniper-SpawnTime
     value: 7
     type: float
-  - key: Bomber-Helath
-    value: 4
-    type: float
   - key: Bomber-Damage
-    value: 4
+    value: 14
     type: float
   - key: Bomber-ShipSpeed
     value: 2
     type: float
   - key: Bomber-EnergyCost
-    value: 1
+    value: 16
     type: int
   - key: Bomber-FireRate
     value: 1
@@ -116,4 +113,40 @@ MonoBehaviour:
     type: float
   - key: Bomber-SpawnTime
     value: 7
+    type: float
+  - key: Attacker-Range
+    value: 25
+    type: float
+  - key: Dreadnought-SpawnTime
+    value: 0.4
+    type: float
+  - key: Dreadnought-EnergyCost
+    value: 2
+    type: int
+  - key: Bomber-Range
+    value: 20
+    type: float
+  - key: Destroyer-Range
+    value: 20
+    type: float
+  - key: Interceptor-Range
+    value: 25
+    type: float
+  - key: Sniper-Range
+    value: 35
+    type: float
+  - key: Dreadnought-Health
+    value: 500
+    type: float
+  - key: Bomber-Health
+    value: 25
+    type: float
+  - key: Dreadnought-Damage
+    value: 10
+    type: float
+  - key: Dreadnought-FireRate
+    value: 0.8
+    type: float
+  - key: Dreadnought-ProjectileSpeed
+    value: 20
     type: float

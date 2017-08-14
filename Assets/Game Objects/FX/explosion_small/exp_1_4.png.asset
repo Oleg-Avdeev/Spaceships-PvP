@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ce436150299e14cb9a551338469989, type: 3}
+  m_Name: exp_1_4.png
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 21300000, guid: d6d41b9dfcd473f4396f2ac929863e7c, type: 3}
+  - {fileID: 21300000, guid: f589c6c553b608640b076e9b35b9232f, type: 3}
+  - {fileID: 21300000, guid: 68e1ab7b417801a449314c6f6426d453, type: 3}
+  - {fileID: 21300000, guid: e0bce2e667a2f5247902b9f78288f1f5, type: 3}
+  - {fileID: 21300000, guid: e37dbf1b046a8fc49baea6fc79115f50, type: 3}
+  - {fileID: 21300000, guid: 843e9729b962dcd48adede66d55a5e9a, type: 3}
+  TimeMultiplier:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

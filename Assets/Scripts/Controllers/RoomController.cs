@@ -11,6 +11,7 @@ public class RoomController : MonoBehaviour, IRoomController
 
     private Coroutine _checkInstantiationsCoroutine = null;
     private bool _isRoomReadyToPlay = false;
+    private bool _showInfoTip;
 
     public void StartGame()
     {
@@ -52,18 +53,21 @@ public class RoomController : MonoBehaviour, IRoomController
         _dataReceiver = data;
     }
 
-    public void TrySpawnUnit(int id)
+    public bool TrySpawnUnit(int id, int shipLane)
     {
         if (_isRoomReadyToPlay)
         {
-            if (_masterMothership.TrySpawnUnit(id))
+            if (GetMyMothership().TrySpawnUnit(id, shipLane))
             {
+                return true;
                 if (_dataReceiver != null)
                 {
-                    _dataReceiver.OnDataChanged(_masterMothership.GetSpawnData());
+                    _dataReceiver.OnDataChanged(GetMyMothership().GetSpawnData());
                 }
             }
         }
+
+        return false;
     }
 
     public IMothership GetMasterMothership()
@@ -74,6 +78,12 @@ public class RoomController : MonoBehaviour, IRoomController
     public IMothership GetClientMothership()
     {
         return (IMothership)_clientMothership;
+    }
+
+    private MothershipController GetMyMothership()
+    {
+        if (PhotonNetwork.isMasterClient) return _masterMothership;
+        else return _clientMothership;
     }
 
 
@@ -92,7 +102,7 @@ public class RoomController : MonoBehaviour, IRoomController
                         _masterMothership = motherships[i];
                     else 
                         _clientMothership = motherships[i];
-                    
+                    motherships[i].Initialize();
                 }
 
                 _isRoomReadyToPlay = true;
@@ -105,16 +115,33 @@ public class RoomController : MonoBehaviour, IRoomController
         }
     }
 
-    public List<Ship> GetMyShips()
+    public List<Ship> GetMyShips(int owner)
     {
-        if (PhotonNetwork.isMasterClient) return _masterShips;
+        if (PhotonNetwork.masterClient.ID == owner)
+            return _masterShips;
         else return _clientShips;
     }
 
-    public List<Ship> GetEnemyShips()
+    public List<Ship> GetEnemyShips(int owner)
     {
-        if (PhotonNetwork.isMasterClient) return _clientShips;
+        if (PhotonNetwork.masterClient.ID == owner) return _clientShips;
         else return _masterShips;
+    }
+
+    public int GetCurrentEnergy()
+    {        
+        if (PhotonNetwork.isMasterClient) return _masterMothership?.GetCurrentEnergy() ?? 0;
+        else return _clientMothership?.GetCurrentEnergy() ?? 0;
+    }
+
+    public bool GetShowTip()
+    {
+        return _showInfoTip;
+    }
+
+    public void ToggleShowTip()
+    {
+        _showInfoTip = !_showInfoTip;
     }
 
     private void ClearRoom()
@@ -122,6 +149,8 @@ public class RoomController : MonoBehaviour, IRoomController
         StopAllCoroutines();
         _clientShips.Clear();
         _masterShips.Clear();
+        _masterMothership = null;
+        _clientMothership = null;
         _isRoomReadyToPlay = false;
     }
 }

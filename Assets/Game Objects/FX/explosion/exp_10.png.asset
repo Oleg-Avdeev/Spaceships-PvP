@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ce436150299e14cb9a551338469989, type: 3}
+  m_Name: exp_10.png
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 21300000, guid: cc9affd1f3c75344c8d0813130918f43, type: 3}
+  - {fileID: 21300000, guid: 9709554f03d25d143a61af7af6614f56, type: 3}
+  - {fileID: 21300000, guid: 0a025c4452b6cb246bb73d18a2432952, type: 3}
+  - {fileID: 21300000, guid: 7a1aa363874baed4c8eeb88c75202b79, type: 3}
+  - {fileID: 21300000, guid: 2151de9abf3570b4f947cbb909362ebd, type: 3}
+  - {fileID: 21300000, guid: 842ed8eabafdff347bea9616d9f79265, type: 3}
+  - {fileID: 21300000, guid: 684ac5114716f4441a74b6c0236f53a0, type: 3}
+  - {fileID: 21300000, guid: 7c06b1504fed6c546b3dd0fe842c9308, type: 3}
+  - {fileID: 21300000, guid: 06b1efe2e1f0cae4a8dfed78f2927411, type: 3}
+  - {fileID: 21300000, guid: daaddbf1061f399408f09e580a55a1bf, type: 3}
+  TimeMultiplier:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

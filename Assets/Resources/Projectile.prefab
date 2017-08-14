@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340603656288394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.51, y: -10.781088, z: 0}
-  m_LocalScale: {x: 0.3114853, y: 0.31148526, z: 0.31148526}
+  m_LocalPosition: {x: -31.26, y: -0.8700903, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.5, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +57,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.01
+  m_Radius: 0.76
 --- !u!96 &96144661341044458
 TrailRenderer:
   serializedVersion: 2
@@ -90,7 +90,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Time: 0.18
   m_Parameters:
     serializedVersion: 2
@@ -180,7 +180,9 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
-  Lifespan: 3.5
+  Lifespan: 0.8
+  ExplosionPrefab: {fileID: 114920726760088418, guid: d05cf764b422e1342b9ceaa7f5f6e312,
+    type: 2}
 --- !u!212 &212315056112626036
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -212,8 +214,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca9a3d25c6f507542b7a316cf000e862, type: 3}
+  m_SortingOrder: -2
+  m_Sprite: {fileID: 21300000, guid: bd9b0fceccaa2ee4cb30f82ec6866605, type: 3}
   m_Color: {r: 0.7647059, g: 0.90464395, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
